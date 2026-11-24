@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ArmaTuRig</title>
+  <meta name="description" content="Arma tu PC y compáralo con otro: FPS estimados juego por juego, cuello de botella, compatibilidad, presupuesto y qué pieza comprar primero.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#results">Ir a los resultados</a>
+
+  <header class="top">
+    <div class="brand">
+      <h1><span class="vs" aria-hidden="true">PC</span><span class="ttl">ArmaTuRig</span></h1>
+      <p class="tagline">Arma tu PC, compáralo con otro y descubre cuántos FPS da, qué pieza lo frena y cuánto cuesta mejorarlo.</p>
+    </div>
+    <button class="btn ghost" id="themeBtn" type="button">Modo claro</button>
+  </header>
+
+  <p class="error" id="error" role="alert" hidden></p>
+
+  <div class="layout">
+    <aside class="config" id="config" aria-label="Configuración de los equipos"></aside>
+
+    <main class="results" id="results" tabindex="-1">
+      <section class="scoreboard" id="scoreboard" aria-label="Resumen de rendimiento"></section>
+
+      <section class="panel" aria-labelledby="advisorTitle">
+        <h2 id="advisorTitle">¿Qué mejoro primero?</h2>
+        <p class="lead">Cambia solo una pieza por otra más potente y mira cuánto suben los FPS promedio. Con «Probar» la pones en tu PC.</p>
+        <div class="advisor" id="advisor"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="shopTitle">
+        <h2 id="shopTitle">Mi lista de compras</h2>
+        <p class="lead">Junta las piezas que quieres comprar, anota los precios y revisa el total, tu presupuesto y si necesitas cambiar placa, memoria o fuente.</p>
+        <div id="shopRoot"></div>
+      </section>
+
+      <section class="panel" aria-labelledby="gamesTitle">
+        <div class="panel-head">
+          <h2 id="gamesTitle">Juego por juego</h2>
+          <p class="count" id="gamesCount" aria-live="polite"></p>
+        </div>
+        <div class="toolbar" id="toolbar"></div>
+        <ul class="game-list" id="gameList"></ul>
+        <p class="note">Las barras llegan hasta el máximo de la escala y la marca vertical es tu meta de FPS. Los números con «est.» vienen de piezas o juegos sin medición directa.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="saveTitle">
+        <h2 id="saveTitle">Guardar y compartir</h2>
+        <p class="lead">Guarda esta comparación con todos sus ajustes y comparte el enlace.</p>
+        <form class="save-form" id="saveForm" autocomplete="off">
+          <div class="field">
+            <label for="title">Título (opcional)</label>
+            <input type="text" id="title" maxlength="40" placeholder="Mi PC contra el de mi amigo">
+          </div>
+          <label class="check" for="isPublic"><input type="checkbox" id="isPublic"> Mostrar en recientes</label>
+          <button class="btn" type="submit" id="saveBtn">Guardar comparación</button>
+        </form>
+        <div class="save-result" id="saveResult" hidden></div>
+      </section>
+
+      <section class="panel" aria-labelledby="recentTitle">
+        <h2 id="recentTitle">Comparaciones recientes</h2>
+        <ul class="recent" id="recent"></ul>
+      </section>
+
+      <p class="note">Todo son estimaciones calibradas con rankings de Tom's Hardware y mediciones de TechSpot. Pueden diferir de lo que verías en tu equipo según drivers, mapa y versión del juego. La generación de fotogramas sube los FPS que ves, no los reales, y agrega latencia. Con 8 GB de RAM el modelo resta FPS y empeora los mínimos.</p>
+    </main>
+  </div>
+
+  <noscript><p class="error">Esta página necesita JavaScript para mostrar los resultados.</p></noscript>
+  <script src="assets/parts.js" defer></script>
+  <script src="assets/compat.js" defer></script>
+  <script src="assets/shop.js" defer></script>
+  <script src="assets/app.js" defer></script>
+  <script src="assets/chat.js" defer></script>
+</body>
+</html>
